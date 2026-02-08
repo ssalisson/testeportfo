@@ -4,28 +4,28 @@ import { MessageCircle } from 'lucide-react';
 
 const CTA: React.FC = () => {
   return (
-    <section id="contact" className="py-32 px-6 relative overflow-hidden">
-        {/* Background Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-violet-900/20 to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-pink-600/10 blur-[100px] pointer-events-none" />
+    <section id="contact" className="py-32 px-6 relative overflow-hidden flex items-center justify-center">
+        {/* Glow Effects */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-violet-600/10 rounded-full blur-[120px] pointer-events-none" />
 
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+        <div className="max-w-3xl mx-auto text-center relative z-10">
             <motion.h2 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-4xl md:text-6xl font-bold text-white mb-8"
+                className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tighter"
             >
                 Vamos criar seu <br/> próximo site?
             </motion.h2>
+            
             <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="text-gray-400 text-lg mb-10 max-w-xl mx-auto"
+                className="text-gray-400 text-xl mb-12"
             >
-                Não deixe sua empresa perder oportunidades por causa de um site amador. Vamos conversar sobre o seu projeto.
+                Não deixe dinheiro na mesa com um site antigo.
             </motion.p>
             
             <motion.div
@@ -35,10 +35,10 @@ const CTA: React.FC = () => {
                 transition={{ delay: 0.2 }}
                 whileHover={{ scale: 1.05 }}
             >
-                <button className="group relative inline-flex items-center justify-center gap-3 px-8 py-5 text-lg font-bold text-white transition-all duration-300 bg-violet-600 rounded-full hover:bg-violet-500 shadow-[0_0_40px_-10px_rgba(139,92,246,0.5)] hover:shadow-[0_0_60px_-10px_rgba(139,92,246,0.7)]">
-                    <MessageCircle size={24} />
+                <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white transition-all duration-300 bg-[#25D366] rounded-full hover:bg-[#22c55e] shadow-[0_0_40px_-10px_rgba(37,211,102,0.5)] hover:shadow-[0_0_60px_-10px_rgba(37,211,102,0.7)]">
+                    <MessageCircle size={24} className="fill-white stroke-none" />
                     Chamar no WhatsApp
-                </button>
+                </a>
             </motion.div>
         </div>
     </section>
