@@ -1,148 +1,124 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, Globe, Zap } from 'lucide-react';
+import { ArrowDownRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center pt-32 pb-20 px-6 md:px-12 lg:px-24 border-b border-white/5 bg-[#050505] overflow-hidden">
+    <section className="relative min-h-screen flex items-center bg-[#050505] overflow-hidden px-6 pt-24 pb-12">
       
-      {/* Background Ambience */}
-      <div className="absolute inset-0 bg-grid pointer-events-none -z-10 opacity-40" />
-      <div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-violet-900/10 rounded-full blur-[120px] -z-10 opacity-60" />
+      {/* Background Texture - Minimal Noise */}
+      <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
 
-      <div className="max-w-[1600px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+      <div className="max-w-[1400px] mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-8 items-center">
         
-        {/* Left Column: Typography (7 Columns) */}
-        <div className="lg:col-span-7 flex flex-col justify-center relative z-20">
+        {/* Coluna de Texto (Dominante) */}
+        <div className="lg:col-span-7 flex flex-col justify-center relative z-20 pt-8 lg:pt-0 order-2 lg:order-1">
             
-            {/* Status Badge */}
+            {/* Signature Tag - Minimalista */}
             <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-              className="flex items-center gap-3 mb-8"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="flex items-center gap-3 mb-8 lg:mb-10 pl-1"
             >
-               <div className="px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md flex items-center gap-2">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                  </span>
-                  <span className="text-[10px] uppercase tracking-widest text-gray-300 font-mono">Disponível para Projetos</span>
-               </div>
-               <span className="hidden md:inline-block h-px w-12 bg-white/10"></span>
-               <span className="hidden md:inline-block text-[10px] uppercase tracking-widest text-gray-500 font-mono">São Paulo, BR</span>
+                <div className="h-[1px] w-8 bg-violet-500/50" />
+                <span className="text-xs font-mono uppercase tracking-[0.25em] text-gray-500">
+                    Italo Lima — Independent
+                </span>
             </motion.div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }} // Custom ease for smoothness
-              className="font-display font-bold text-white leading-[0.95] tracking-tighter mb-8"
-              style={{ fontSize: 'clamp(3.5rem, 8vw, 7.5rem)' }}
-            >
-              SITES QUE <br />
-              <span className="relative inline-block">
-                <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-violet-300 via-white to-gray-400">VENDEM</span>
-                <motion.div 
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ delay: 0.8, duration: 0.8 }}
-                    className="absolute bottom-2 left-0 w-full h-[0.1em] bg-violet-500/30 -z-0 origin-left"
-                />
-              </span> <br />
-              AUTORIDADE.
-            </motion.h1>
-
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-lg md:text-xl text-gray-400 font-light leading-relaxed mb-10 max-w-xl"
-            >
-              Eu sou <strong className="text-white font-medium">Italo Lima</strong>. Crio experiências digitais premium que diferenciam sua marca e convertem visitantes em clientes de alto valor.
-            </motion.p>
-
-            <motion.div 
-               initial={{ opacity: 0, y: 20 }} 
-               animate={{ opacity: 1, y: 0 }} 
-               transition={{ delay: 0.6, duration: 0.8 }}
-               className="flex flex-col sm:flex-row gap-5"
-            >
-                <a 
-                  href="#projects" 
-                  className="group relative h-14 px-8 rounded-full bg-white text-black font-bold flex items-center justify-center gap-3 overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)]"
-                >
-                  <span className="relative z-10">Ver Projetos Selecionados</span>
-                  <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
-                </a>
+            {/* Main Headline - Hierarquia Editorial */}
+            <h1 className="font-display font-medium tracking-tighter leading-[0.85] text-white mix-blend-exclusion mb-8">
+                <div className="overflow-hidden">
+                    <motion.span 
+                        initial={{ y: "100%" }}
+                        animate={{ y: 0 }}
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                        className="block text-4xl md:text-5xl lg:text-[4.5rem] text-gray-400 font-light mb-2 lg:mb-4 tracking-tight"
+                    >
+                        Design que
+                    </motion.span>
+                </div>
                 
-                <a href="#contact" className="h-14 px-8 rounded-full border border-white/10 hover:border-white/30 flex items-center justify-center gap-3 text-gray-300 hover:text-white transition-all hover:bg-white/5">
-                   <span>Vamos Conversar</span>
-                </a>
-            </motion.div>
+                <div className="overflow-hidden">
+                    <motion.span 
+                        initial={{ y: "100%" }}
+                        animate={{ y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                        className="block text-[13vw] lg:text-[9rem] uppercase text-white font-bold ml-[-0.05em]"
+                    >
+                        CONSTRÓI
+                    </motion.span>
+                </div>
 
-             {/* Footer bits for Hero */}
-             <motion.div 
+                <div className="overflow-hidden relative">
+                     <motion.span 
+                        initial={{ y: "100%" }}
+                        animate={{ y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        className="block text-[13vw] lg:text-[9rem] uppercase text-gray-600 font-light ml-[-0.05em]"
+                    >
+                        AUTORIDADE.
+                    </motion.span>
+                </div>
+            </h1>
+
+            {/* Personal Manifesto */}
+            <motion.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-                className="mt-16 flex items-center gap-8 text-xs font-mono text-gray-600 uppercase tracking-wider"
-             >
-                <div className="flex items-center gap-2">
-                    <Globe size={14} />
-                    <span>Design Mundial</span>
+                transition={{ delay: 0.6, duration: 1 }}
+                className="mt-4 lg:mt-8 max-w-md pl-1"
+            >
+                <p className="text-lg text-gray-400 font-light leading-relaxed mb-8">
+                    Interfaces que não apenas impressionam, mas convertem. 
+                    Sem intermediários ou burocracia de agência. Apenas <span className="text-white border-b border-white/20">estratégia visual</span> direta da fonte.
+                </p>
+                
+                <div className="flex flex-wrap gap-8 items-center">
+                    <a href="#projects" className="group flex items-center gap-3 text-white">
+                        <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">
+                            <ArrowDownRight size={18} />
+                        </div>
+                        <span className="text-xs font-mono uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors">
+                            Portfolio Select
+                        </span>
+                    </a>
                 </div>
-                <div className="flex items-center gap-2">
-                    <Zap size={14} />
-                    <span>Alta Performance</span>
-                </div>
-             </motion.div>
+            </motion.div>
         </div>
 
-        {/* Right Column: Visual (5 Columns) - Floating Card Style */}
-        <div className="lg:col-span-5 relative h-full flex items-center justify-center lg:justify-end mt-12 lg:mt-0">
-             <motion.div
-                initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-                className="relative w-full max-w-[440px] aspect-[3/4] group"
-             >
-                {/* Back Glow */}
-                <div className="absolute inset-0 bg-violet-500/20 blur-[60px] rounded-full scale-90 group-hover:scale-110 transition-transform duration-1000 opacity-0 group-hover:opacity-100" />
-                
-                {/* Image Card */}
-                <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/10 bg-[#111] shadow-2xl shadow-black/50">
-                    <img 
-                      src="https://i.ibb.co/SwHFYdC9/Air-Brush-20260208163021-jpg.jpg" 
-                      alt="Italo Lima - Web Designer" 
-                      width="440"
-                      height="586"
-                      loading="eager"
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-105 group-hover:scale-100"
-                    />
-                    
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
-
-                    {/* Floating Info inside Image */}
-                    <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
-                         <div className="backdrop-blur-md bg-white/10 border border-white/10 px-4 py-3 rounded-xl flex-grow mr-4">
-                            <p className="text-white font-bold text-sm">Italo Lima</p>
-                            <p className="text-gray-300 text-[10px] font-mono uppercase tracking-wider">Founder & Creative Director</p>
-                         </div>
-                         <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center shadow-lg shadow-white/10">
-                            <Star size={20} className="fill-black" />
-                         </div>
+        {/* Coluna de Imagem - Integração Fluida */}
+        <div className="lg:col-span-5 relative h-[55vh] lg:h-[90vh] flex items-end lg:items-center justify-center order-1 lg:order-2 lg:-mr-12">
+            <motion.div 
+                initial={{ opacity: 0, filter: "blur(15px)" }}
+                animate={{ opacity: 1, filter: "blur(0px)" }}
+                transition={{ duration: 1.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="relative w-full h-full"
+            >
+                 {/* Imagem com crop mais fechado e posicionado */}
+                 <img 
+                    src="https://i.ibb.co/SwHFYdC9/Air-Brush-20260208163021-jpg.jpg" 
+                    alt="Italo Lima Portrait" 
+                    className="w-full h-full object-cover object-[center_25%] grayscale contrast-[1.1] brightness-[0.8] lg:brightness-[0.9] lg:mask-image-linear-gradient"
+                 />
+                 
+                 {/* Gradient masking for seamless blend */}
+                 <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent lg:via-transparent" />
+                 <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-transparent to-transparent opacity-80 lg:opacity-100" />
+                 
+                 {/* Floating Signature - Real Designer Tag */}
+                 <div className="absolute bottom-4 right-4 lg:bottom-12 lg:right-12 text-right">
+                    <div className="flex flex-col items-end gap-1">
+                        <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-gray-500">
+                            Design & Code
+                        </span>
+                        <span className="text-white text-sm font-bold tracking-widest border-b border-white/30 pb-1">
+                            ITALO LIMA
+                        </span>
                     </div>
-                </div>
-
-                {/* Decorative Elements around image */}
-                <motion.div 
-                    animate={{ y: [0, -10, 0] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-violet-500 to-fuchsia-600 rounded-full blur-2xl opacity-20" 
-                />
-             </motion.div>
+                 </div>
+            </motion.div>
         </div>
 
       </div>
