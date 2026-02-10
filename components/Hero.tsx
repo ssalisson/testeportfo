@@ -4,31 +4,32 @@ import { ArrowDownRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center bg-[#050505] overflow-hidden px-6 pt-24 pb-12">
+    <section className="relative min-h-[100dvh] flex items-center justify-center bg-[#050505] overflow-hidden pt-28 pb-10 lg:pt-32 lg:pb-0">
       
       {/* Background Texture - Minimal Noise */}
       <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
 
-      <div className="max-w-[1400px] mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-8 items-center">
+      {/* Container Principal */}
+      <div className="max-w-[1400px] mx-auto w-full relative z-10 px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center h-full">
         
         {/* Coluna de Texto (Dominante) */}
-        <div className="lg:col-span-7 flex flex-col justify-center relative z-20 pt-8 lg:pt-0 order-2 lg:order-1">
+        <div className="lg:col-span-7 flex flex-col justify-center relative z-20 order-2 lg:order-1">
             
             {/* Signature Tag - Minimalista */}
             <motion.div 
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
-                className="flex items-center gap-3 mb-8 lg:mb-10 pl-1"
+                className="flex items-center gap-3 mb-6 lg:mb-10 pl-1"
             >
                 <div className="h-[1px] w-8 bg-violet-500/50" />
-                <span className="text-xs font-mono uppercase tracking-[0.25em] text-gray-500">
+                <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-gray-500">
                     Italo Lima — Independent
                 </span>
             </motion.div>
 
             {/* Main Headline - Hierarquia Editorial */}
-            <h1 className="font-display font-medium tracking-tighter leading-[0.85] text-white mix-blend-exclusion mb-8">
+            <h1 className="font-display font-medium tracking-tighter leading-[0.85] text-white mix-blend-exclusion mb-6 lg:mb-8">
                 <div className="overflow-hidden">
                     <motion.span 
                         initial={{ y: "100%" }}
@@ -45,7 +46,7 @@ const Hero: React.FC = () => {
                         initial={{ y: "100%" }}
                         animate={{ y: 0 }}
                         transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                        className="block text-[13vw] lg:text-[9rem] uppercase text-white font-bold ml-[-0.05em]"
+                        className="block text-[12vw] md:text-[10vw] lg:text-[9rem] uppercase text-white font-bold ml-[-0.05em]"
                     >
                         CONSTRÓI
                     </motion.span>
@@ -56,7 +57,7 @@ const Hero: React.FC = () => {
                         initial={{ y: "100%" }}
                         animate={{ y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                        className="block text-[13vw] lg:text-[9rem] uppercase text-gray-600 font-light ml-[-0.05em]"
+                        className="block text-[12vw] md:text-[10vw] lg:text-[9rem] uppercase text-gray-600 font-light ml-[-0.05em]"
                     >
                         AUTORIDADE.
                     </motion.span>
@@ -68,7 +69,7 @@ const Hero: React.FC = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6, duration: 1 }}
-                className="mt-4 lg:mt-8 max-w-md pl-1"
+                className="mt-2 lg:mt-8 max-w-md pl-1 hidden md:block"
             >
                 <p className="text-lg text-gray-400 font-light leading-relaxed mb-8">
                     Interfaces que não apenas impressionam, mas convertem. 
@@ -89,7 +90,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Coluna de Imagem - Integração Fluida */}
-        <div className="lg:col-span-5 relative h-[55vh] lg:h-[90vh] flex items-end lg:items-center justify-center order-1 lg:order-2 lg:-mr-12">
+        <div className="lg:col-span-5 relative h-[40dvh] lg:h-[80vh] flex items-end lg:items-center justify-center order-1 lg:order-2 lg:-mr-12 w-full">
             <motion.div 
                 initial={{ opacity: 0, filter: "blur(15px)" }}
                 animate={{ opacity: 1, filter: "blur(0px)" }}
@@ -100,7 +101,7 @@ const Hero: React.FC = () => {
                  <img 
                     src="https://i.ibb.co/SwHFYdC9/Air-Brush-20260208163021-jpg.jpg" 
                     alt="Italo Lima Portrait" 
-                    className="w-full h-full object-cover object-[center_25%] grayscale contrast-[1.1] brightness-[0.8] lg:brightness-[0.9] lg:mask-image-linear-gradient"
+                    className="w-full h-full object-cover object-[center_20%] lg:object-[center_25%] grayscale contrast-[1.1] brightness-[0.8] lg:brightness-[0.9] lg:mask-image-linear-gradient"
                  />
                  
                  {/* Gradient masking for seamless blend */}
@@ -120,6 +121,27 @@ const Hero: React.FC = () => {
                  </div>
             </motion.div>
         </div>
+        
+        {/* Mobile Only Manifesto (Moves below image on small screens) */}
+        <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 1 }}
+            className="md:hidden order-3 col-span-1 mt-6 pl-1"
+        >
+             <p className="text-sm text-gray-400 font-light leading-relaxed mb-6">
+                Interfaces que não apenas impressionam, mas convertem. 
+                Sem intermediários. Apenas <span className="text-white border-b border-white/20">estratégia visual</span> direta da fonte.
+            </p>
+             <a href="#projects" className="group flex items-center gap-3 text-white">
+                <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">
+                    <ArrowDownRight size={14} />
+                </div>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors">
+                    Portfolio Select
+                </span>
+            </a>
+        </motion.div>
 
       </div>
       

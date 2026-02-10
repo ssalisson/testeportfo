@@ -75,15 +75,15 @@ const App: React.FC = () => {
       </div>
 
       {/* Navbar Floating Island Style */}
-      <header className={`fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-300 ${isScrolled ? 'pt-4' : 'pt-6'}`}>
+      <header className={`fixed top-0 left-0 right-0 z-[60] flex justify-center transition-all duration-300 ${isScrolled ? 'pt-4' : 'pt-6'}`}>
         <motion.div 
             initial={false}
             animate={{ 
-                width: isMobile ? "92%" : (isScrolled ? "fit-content" : "90%"), // Mobile always fixed width to avoid jitter
+                width: isMobile ? "94%" : (isScrolled ? "fit-content" : "90%"), // Mobile always fixed width to avoid jitter
                 maxWidth: isMobile ? "100%" : (isScrolled ? "400px" : "1400px"),
                 padding: isScrolled ? "0.5rem 0.75rem" : "0rem"
             }}
-            className={`flex items-center justify-between overflow-hidden transition-colors duration-500 ${navBgClass} ${isScrolled ? 'gap-2 md:gap-4 pl-4 md:pl-6 pr-1 md:pr-0 rounded-full' : 'w-[92%] md:w-[90%]'}`}
+            className={`flex items-center justify-between overflow-hidden transition-colors duration-500 ${navBgClass} ${isScrolled ? 'gap-2 md:gap-4 pl-4 md:pl-6 pr-1 md:pr-0 rounded-full' : 'w-[94%] md:w-[90%]'}`}
         >
             {/* Logo */}
             <div className={`flex items-center gap-2 flex-shrink-0`}>
@@ -130,7 +130,7 @@ const App: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.2 }}
-                className="fixed inset-0 z-40 bg-[#050505] pt-32 px-6 md:hidden flex flex-col gap-8"
+                className="fixed inset-0 z-50 bg-[#050505] pt-32 px-6 md:hidden flex flex-col gap-8"
             >
                 <button onClick={() => scrollToSection('projects')} className="text-4xl font-display font-bold text-white text-left">Projetos</button>
                 <button onClick={() => scrollToSection('services')} className="text-4xl font-display font-bold text-white text-left">Serviços</button>
@@ -142,6 +142,16 @@ const App: React.FC = () => {
                     <span>WhatsApp Direct</span>
                     <ArrowUpRight size={20} />
                 </a>
+                
+                 {/* Close button inside menu for clarity */}
+                <div className="absolute top-6 right-6">
+                     <button 
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="text-white p-2 rounded-full hover:bg-white/10"
+                    >
+                        <X size={24} />
+                    </button>
+                </div>
             </motion.div>
         )}
       </AnimatePresence>
